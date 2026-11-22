@@ -23,7 +23,6 @@
 }
 body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg); color: var(--text-content); min-height:100vh; overflow:hidden; }
 
-/* Login */
 .login-container { display:flex; justify-content:center; align-items:center; min-height:100vh; background: var(--col1-bg); }
 .login-box { background: var(--col2-bg); padding:50px; border-radius:16px; text-align:center; max-width:420px; width:100%; border:1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 .login-box h1 { color: var(--accent); margin-bottom:10px; font-size:28px; }
@@ -31,7 +30,6 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg)
 .google-btn { background: var(--accent); color:white; border:none; padding:14px 28px; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:10px; transition:all 0.3s; }
 .google-btn:hover { background: var(--accent-hover); transform:translateY(-2px); box-shadow:0 6px 20px rgba(99,102,241,0.4); }
 
-/* App layout */
 .app-container { display:none; height:100vh; flex-direction:column; }
 .app-container.active { display:flex; }
 .header { background: var(--col1-bg); padding:14px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
@@ -44,10 +42,8 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg)
 .logout-btn { background:transparent; color: var(--text-muted); border:1px solid var(--border); padding:7px 14px; border-radius:8px; cursor:pointer; font-size:12px; transition:all 0.3s; }
 .logout-btn:hover { color: var(--danger); border-color: var(--danger); }
 
-/* Three-pane */
 .main-content { display:grid; grid-template-columns: 240px 320px 1fr; flex:1; overflow:hidden; }
 
-/* Column 1 - Folder tree */
 .col1 { background: var(--col1-bg); border-right:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
 .col-header { padding:14px 16px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .col-header h3 { font-size:13px; color: var(--text-title); font-weight:600; }
@@ -60,8 +56,10 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg)
 .folder-item.level-1 { padding-left:24px; }
 .folder-item.level-2 { padding-left:38px; }
 .folder-item.level-3 { padding-left:52px; }
-.folder-toggle { width:14px; font-size:10px; color: var(--text-muted); flex-shrink:0; }
+.folder-toggle { width:18px; font-size:10px; color: var(--text-muted); flex-shrink:0; cursor:pointer; text-align:center; }
+.folder-toggle:hover { color: var(--accent); }
 .folder-item.active .folder-toggle { color: white; }
+.folder-icon { flex-shrink:0; }
 .folder-name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .folder-count { font-size:11px; color: var(--text-muted); background: var(--content-bg); padding:1px 7px; border-radius:10px; flex-shrink:0; }
 .folder-item.active .folder-count { background: rgba(255,255,255,0.2); color:white; }
@@ -70,7 +68,6 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg)
 .folder-action { background:transparent; border:none; color:inherit; cursor:pointer; font-size:12px; padding:2px 4px; border-radius:4px; }
 .folder-action:hover { background: rgba(255,255,255,0.15); }
 
-/* Column 2 - Prompt list */
 .col2 { background: var(--col2-bg); border-right:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
 .search-box { padding:12px; border-bottom:1px solid var(--border); position:relative; }
 .search-box input { width:100%; padding:9px 60px 9px 32px; background: var(--content-bg); border:1px solid var(--border); border-radius:8px; color: var(--text-content); font-size:13px; }
@@ -87,7 +84,6 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg)
 .add-prompt-btn { margin:12px; padding:10px; background: var(--accent); color:white; border:none; border-radius:8px; cursor:pointer; font-weight:600; font-size:13px; transition:all 0.3s; }
 .add-prompt-btn:hover { background: var(--accent-hover); }
 
-/* Column 3 - Detail */
 .col3 { background: var(--col3-bg); display:flex; flex-direction:column; overflow:hidden; }
 .detail-empty { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; color: var(--text-muted); }
 .detail-empty-icon { font-size:60px; margin-bottom:16px; opacity:0.3; }
@@ -110,7 +106,6 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg)
 .tag { padding:3px 10px; background: var(--content-bg); border:1px solid var(--border); color: var(--accent); border-radius:12px; font-size:11px; }
 .detail-description { margin-top:16px; padding:12px 14px; background: rgba(99,102,241,0.08); border-left:3px solid var(--accent); border-radius:6px; font-size:13px; color: var(--text-content); font-style:italic; }
 
-/* Modal */
 .modal { display:none; position:fixed; inset:0; background: rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center; padding:20px; backdrop-filter:blur(5px); }
 .modal.active { display:flex; }
 .modal-content { background: var(--col2-bg); border-radius:14px; padding:26px; max-width:560px; width:100%; max-height:90vh; overflow-y:auto; border:1px solid var(--border); }
@@ -130,29 +125,21 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background: var(--col3-bg)
 .btn-secondary { background: var(--content-bg); color: var(--text-content); border:1px solid var(--border); }
 .btn-secondary:hover { border-color: var(--accent); }
 
-/* Toast */
 .toast { position:fixed; bottom:24px; right:24px; padding:12px 18px; background: var(--success); color:white; border-radius:8px; font-size:13px; font-weight:600; z-index:2000; opacity:0; transform:translateY(20px); transition:all 0.3s; pointer-events:none; }
 .toast.show { opacity:1; transform:translateY(0); }
 .toast.error { background: var(--danger); }
 
-/* Footer bar */
 .footer-bar { padding:10px 16px; border-top:1px solid var(--border); display:flex; gap:8px; background: var(--col1-bg); }
 .footer-btn { flex:1; padding:8px; background: var(--content-bg); border:1px solid var(--border); color: var(--text-content); border-radius:6px; cursor:pointer; font-size:11px; font-weight:600; transition:all 0.3s; }
 .footer-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width:6px; height:6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius:3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-@media (max-width: 1100px) {
-    .main-content { grid-template-columns: 200px 260px 1fr; }
-}
-@media (max-width: 800px) {
-    .main-content { grid-template-columns: 1fr; }
-    .col1, .col2 { display:none; }
-}
+@media (max-width: 1100px) { .main-content { grid-template-columns: 200px 260px 1fr; } }
+@media (max-width: 800px) { .main-content { grid-template-columns: 1fr; } .col1, .col2 { display:none; } }
 </style>
 </head>
 <body>
@@ -255,7 +242,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, collection, doc, setDoc, getDocs, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// ✅ CONFIG APP PROMPT MANAGER
 const firebaseConfig = {
     apiKey: "AIzaSyBVBGxTsyvKR0ha0s4_Syk-b7ZXt-rOBps",
     authDomain: "voicelinks.firebaseapp.com",
@@ -276,6 +262,7 @@ let currentFolder = 'all';
 let selectedPrompt = null;
 let prompts = [];
 let folders = [];
+let collapsedFolders = new Set();
 
 const $ = id => document.getElementById(id);
 
@@ -380,10 +367,14 @@ function renderFolderTree() {
         list.forEach(f => {
             const count = countPromptsInFolder(f.id);
             const hasChildren = f.children.length > 0;
+            const isCollapsed = collapsedFolders.has(f.id);
+            const toggleIcon = hasChildren ? (isCollapsed ? '▶' : '▼') : '·';
+            
             out += `
                 <div class="folder-item ${currentFolder === f.id ? 'active' : ''} level-${level}" data-folder="${f.id}">
-                    <span class="folder-toggle">${hasChildren ? '▼' : '·'}</span>
-                    <span class="folder-name">📁 ${f.name}</span>
+                    <span class="folder-toggle" data-toggle="${f.id}">${toggleIcon}</span>
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">${f.name}</span>
                     <span class="folder-count">${count}</span>
                     <div class="folder-actions">
                         <button class="folder-action" data-action="addsub" data-id="${f.id}" title="Thêm thư mục con">➕</button>
@@ -392,7 +383,9 @@ function renderFolderTree() {
                     </div>
                 </div>
             `;
-            if (hasChildren) out += render(f.children, level + 1);
+            if (hasChildren && !isCollapsed) {
+                out += render(f.children, level + 1);
+            }
         });
         return out;
     }
@@ -403,9 +396,23 @@ function renderFolderTree() {
     document.querySelectorAll('.folder-item').forEach(item => {
         item.addEventListener('click', (e) => {
             if (e.target.closest('.folder-actions')) return;
+            if (e.target.classList.contains('folder-toggle')) return;
             currentFolder = item.dataset.folder;
             renderFolderTree();
             renderPromptList();
+        });
+    });
+
+    document.querySelectorAll('.folder-toggle[data-toggle]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const folderId = btn.dataset.toggle;
+            if (collapsedFolders.has(folderId)) {
+                collapsedFolders.delete(folderId);
+            } else {
+                collapsedFolders.add(folderId);
+            }
+            renderFolderTree();
         });
     });
 
@@ -523,11 +530,56 @@ function getFilteredPrompts() {
 }
 
 function renderPromptList() {
-    const list = getFilteredPrompts();
+    const term = $('searchInput').value.toLowerCase();
+    
+    if (currentFolder !== 'all') {
+        const children = folders.filter(f => f.parentId === currentFolder);
+        
+        if (children.length > 0) {
+            $('promptList').innerHTML = children.map(child => {
+                const promptCount = prompts.filter(p => p.folder === child.id).length;
+                const subFolderCount = folders.filter(f => f.parentId === child.id).length;
+                
+                return `
+                    <div class="prompt-item" data-folder="${child.id}" style="cursor:pointer;">
+                        <div class="prompt-item-title">📁 ${child.name}</div>
+                        <div class="prompt-item-preview">${promptCount} prompts · ${subFolderCount} thư mục con</div>
+                        <div class="prompt-item-meta">
+                            <span>📂 Thư mục con</span>
+                            <span>Click để xem →</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.querySelectorAll('.prompt-item[data-folder]').forEach(item => {
+                item.addEventListener('click', () => {
+                    currentFolder = item.dataset.folder;
+                    renderFolderTree();
+                    renderPromptList();
+                });
+            });
+            
+            return;
+        }
+    }
+    
+    let list = prompts;
+    if (currentFolder !== 'all') list = list.filter(p => p.folder === currentFolder);
+    if (term) {
+        list = list.filter(p =>
+            p.title.toLowerCase().includes(term) ||
+            p.content.toLowerCase().includes(term) ||
+            (p.description && p.description.toLowerCase().includes(term)) ||
+            (p.tags && p.tags.some(t => t.toLowerCase().includes(term)))
+        );
+    }
+    
     if (list.length === 0) {
         $('promptList').innerHTML = `<div style="text-align:center; padding:40px 20px; color: var(--text-muted); font-size:13px;">Không có prompt nào</div>`;
         return;
     }
+    
     $('promptList').innerHTML = list.map(p => {
         const folder = folders.find(f => f.id === p.folder);
         const date = new Date(p.updatedAt || p.createdAt).toLocaleDateString('vi-VN');
@@ -543,7 +595,7 @@ function renderPromptList() {
         `;
     }).join('');
 
-    document.querySelectorAll('.prompt-item').forEach(item => {
+    document.querySelectorAll('.prompt-item[data-id]').forEach(item => {
         item.addEventListener('click', () => {
             selectedPrompt = item.dataset.id;
             renderPromptList();
@@ -588,7 +640,7 @@ function renderDetail() {
             ${p.description ? `<div class="detail-description">💬 ${p.description}</div>` : ''}
             <div style="margin-top:16px;">
                 <div style="font-size:11px; color: var(--text-muted); margin-bottom:8px; font-weight:600;">NỘI DUNG PROMPT</div>
-                <div class="prompt-content" id="promptContent">${escapeHtml(p.content)}</div>
+                <div class="prompt-content">${escapeHtml(p.content)}</div>
             </div>
             ${tags ? `<div class="detail-tags">${tags}</div>` : ''}
         </div>
@@ -626,12 +678,14 @@ function openPromptModal(p) {
     $('promptModalTitle').textContent = p ? 'Chỉnh sửa prompt' : 'Thêm prompt mới';
     $('promptForm').reset();
     $('promptId').value = p ? p.id : '';
+    
     if (p) {
-        $('promptTitle').value = p.title;
-        $('promptContent').value = p.content;
+        $('promptTitle').value = p.title || '';
+        $('promptContent').value = p.content || '';
         $('promptDescription').value = p.description || '';
         $('promptTags').value = p.tags ? p.tags.join(', ') : '';
     }
+    
     const roots = buildTree();
     function renderOpts(list, level = 0) {
         let out = '';
